@@ -1,5 +1,5 @@
 Welcome to Gh0stn0des easy-n8n repository. 
 <p>
-<h3>Instructions</h3>
+<h3>Generate Secrets</h3>
 <p>
-Start by cloning the repo to the folder of your choice. This has been tested on Ubuntu Server. 
+The generate secrets file generates secure unique secrets for your N8N env file. 

@@ -43,3 +43,31 @@ echo ""
 echo "  Keep N8N_ENCRYPTION_KEY backed up — losing it makes saved credentials unrecoverable."
 echo ""
 echo "  When ready: docker compose up -d"
+
+# Enter Server Details
+
+read -p "Would you like to enter host, protocol and webhook URL? (y/n): " answer
+
+if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+    echo "Great, let's enter the server details..."
+    read -p "Enter N8N_HOST (default: localhost): " n8n_host
+    n8n_host=${n8n_host:-localhost}
+    read -p "Enter N8N_PROTOCOL (default: http): " n8n_protocol
+    n8n_protocol=${n8n_protocol:-http}
+    read -p "Enter WEBHOOK_URL (default: http://localhost:5678):
+  " webhook_url
+    webhook_url=${webhook_url:-http://localhost:5678}
+
+    # Update .env with the new values
+    sed -i "s|^N8N_HOST=.*|N8N_HOST=${n8n_host}|" "$ENV_FILE"
+    sed -i "s|^N8N_PROTOCOL=.*|N8N_PROTOCOL=${n8n_protocol}|" "$ENV_FILE"
+    sed -i "s|^WEBHOOK_URL=.*|WEBHOOK_URL=${webhook_url}|" "$ENV_FILE"
+
+    echo ""
+    echo "✓ Updated .env with server details:"
+    echo "  N8N_HOST: ${n8n_host}"
+    echo "  N8N_PROTOCOL: ${n8n_protocol}"
+    echo "  WEBHOOK_URL: ${webhook_url}"
+else
+    echo "Skipping server setup."
+fi
