@@ -1,13 +1,13 @@
-Welcome to Gh0stn0des easy-n8n repository. 
-<p>
-<h3>General Information</h3>
-<p>
+## Welcome to Gh0stn0des easy-n8n repository. 
+
+## General Information
+
 This repo contains a dockerfile which allows you to install N8N on Ubuntu Server. It has been Tested on Ubuntu 26.04 LTS. It also contains a script to set up your .env properly. I have attached an example file. 
-<p>
-<h3>General Installation</h3>
-<p>
-*Clone the repo using git clone [repo address].git
-*chmod +x generate-secrets.sh
+
+## General Installation
+
+* Clone the repo using git clone [repo address].git
+* chmod +x generate-secrets.sh
 * run command ./generate-secrets.sh
 * The script will generate a .env file, set up a secure password for the postgres database and also generate your encryption key for n8n.
 * The script will then ask if you want to enter your host,protocol and webhook url. 
