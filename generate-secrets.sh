@@ -43,6 +43,7 @@ echo ""
 echo "  Keep N8N_ENCRYPTION_KEY backed up — losing it makes saved credentials unrecoverable."
 echo ""
 echo "  When ready: docker compose up -d"
+echo ""
 
 # Enter Server Details
 
@@ -69,5 +70,5 @@ if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
     echo "  N8N_PROTOCOL: ${n8n_protocol}"
     echo "  WEBHOOK_URL: ${webhook_url}"
 else
-    echo "Skipping server setup."
+    echo "Skipping host setup."
 fi
