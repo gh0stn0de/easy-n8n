@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+
+    #ServerName eg example.com
+    ServerName n8n.domain.tld 
+
+    #Pass to Docker
+
+    ProxyPreserveHost On
+
+    ProxyPass / http://127.0.0.1:5678/
+    ProxyPassReverse / http://127.0.0.1:5678/
+
+    #Websocket Support
+    
+    RewriteEngine on
+    RewriteCond %{HTTP:Upgrade} =websocket [NC]
+    RewriteRule /(.*) ws://127.0.0.1:5678/$1 [P,L]
+
+    ErrorLog ${APACHE_LOG_DIR}/n8n_error.log
+    CustomLog ${APACHE_LOG_DIR}/n8n_access.log combined
+</VirtualHost>
