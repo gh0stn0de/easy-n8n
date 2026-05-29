@@ -14,3 +14,9 @@ This repo contains a dockerfile which allows you to install N8N on Ubuntu Server
 * Keep the generated `.env` file in the repository root so Compose can load it into each service.
 * Once the script has finished then type `docker compose up -d` and everything should come up.
 * On Ubuntu Server you may have to `sudo` certain commands  
+
+## Troubleshooting
+
+Do not start the docker container until you have run the generate secrets script. What happens is N8N builds its own key and it doesnt match the key in the docker compose / env file and causes the container not to start. 
+
+If you have already made this mistake you can either edit the key on the n8n data volume or remove the volume and run the install again. 
